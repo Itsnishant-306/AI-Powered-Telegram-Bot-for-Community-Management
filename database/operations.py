@@ -3,14 +3,29 @@ import os
 import firebase_admin
 from firebase_admin import credentials, firestore
 from dotenv import load_dotenv
+import json
 
 # Load environment variables
 load_dotenv()
+firebase_creds = os.getenv('FIREBASE_CREDENTIALS')
 
+if firebase_creds:
+    try:
+        cred_dict = json.loads(firebase_creds)  # Convert string to dictionary
+        cred = credentials.Certificate(cred_dict)  # Use the dictionary directly
+        firebase_admin.initialize_app(cred)
+        db = firestore.client()
+        print("✅ Firebase initialized successfully!")
+    except json.JSONDecodeError as e:
+        print(f"❌ Error decoding Firebase credentials: {e}")
+else:
+    print("❌ FIREBASE_CREDENTIALS environment variable is missing!")
+
+"""
 # Initialize Firebase
 cred = credentials.Certificate(os.getenv('FIREBASE_CREDENTIALS'))
 firebase_admin.initialize_app(cred)
-db = firestore.client()
+db = firestore.client()"""
 
 def create_user_if_not_exists(user_id, username, first_name):
     """Create a user in the database if they don't exist."""
@@ -94,7 +109,7 @@ def get_leaderboard(limit=10):
     
     return leaderboard
 
-def get_all_users():
+async def get_all_users():
     """Retrieve all users from Firebase Firestore."""
     users_ref = db.collection('users').stream()  # Get all user documents
     users_list = []
