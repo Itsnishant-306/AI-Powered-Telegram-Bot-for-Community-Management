@@ -1,5 +1,6 @@
 import os
 import pytz
+from pytz import timezone
 import logging
 from dotenv import load_dotenv
 from telegram import Update
@@ -9,6 +10,8 @@ from bot.handlers import handle_message, handle_callback
 from bot.scheduler import setup_scheduler
 from database.operations import init_db
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
+
+os.environ["TZ"] = "UTC"
 
 # Load environment variables
 load_dotenv()
@@ -27,12 +30,14 @@ async def main():
     
     # Create a scheduler with explicit timezone
     #scheduler = AsyncIOScheduler(timezone=pytz.UTC)
-    scheduler = AsyncIOScheduler(timezone=pytz.timezone('UTC'))
+    scheduler = AsyncIOScheduler(timezone=timezone("UTC"))  # Explicitly set UTC or your preferred timezone
 
     
     # Create the Application with the custom scheduler
     #application_builder = (Application.builder().token(TOKEN).job_queue(JobQueue(AsyncIOScheduler(timezone=pytz.timezone('UTC'))))) ##changed 
-    application_builder = Application.builder().token(TOKEN).job_queue(None)
+    #application_builder = Application.builder().token(TOKEN).job_queue(None)
+    application_builder = Application.builder().token(TOKEN).job_queue(scheduler)
+
     # Disable the default job queue to prevent automatic creation
     #application_builder._job_queue = None
     app = application_builder.build()
