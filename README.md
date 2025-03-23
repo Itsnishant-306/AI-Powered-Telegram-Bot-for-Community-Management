@@ -60,6 +60,7 @@ Create a `.env` file with the following:
 TELEGRAM_TOKEN=your_telegram_bot_token
 HUGGINGFACE_API_KEY=your_huggingface_api_key
 APIVERVE_KEY=your_apiverve_key
+FIREBASE_CREDENTIALS=json_file_path or paste the content of that file in a string ' ' in single line
 ```
 
 ### Installation Steps
@@ -89,6 +90,24 @@ python main.py
 - `/sentiment` - for sentiment analysis
 - `/announce` - For Admins only for announcements
 - Type your questions and anything you'd want to ask, It's AI powered - ready to conquer your doubts.
+
+#### Bot Information
+![Screenshot 2025-03-23 185017](https://github.com/user-attachments/assets/be624715-5b24-4dab-a52d-3eb12417c5f8)
+
+### Result to various commands and prompts to check the functionality of the bot
+#### /Start | Asking "hello, how are you?" to check NLP usage and AI response
+![Screenshot 2025-03-23 185122](https://github.com/user-attachments/assets/1860e823-1311-4181-907c-70f29bbad54d)
+
+#### /help | /about | /faq 
+![Screenshot 2025-03-23 185155](https://github.com/user-attachments/assets/844e7230-c05e-42e7-8428-74d2cb6aea33)
+
+#### /announce | Some random question | Automated Scheduled updates and daily motivation message from AI
+![Screenshot 2025-03-23 185220](https://github.com/user-attachments/assets/2f50981a-78d5-40d8-a6f4-a44114cecc51)
+
+#### /leaderboard | /sentiment 
+![Screenshot 2025-03-23 185248](https://github.com/user-attachments/assets/2eb4e64a-c2db-4e2a-be40-7d7e5679ea20)
+
+
 
 ## Deployment
 
