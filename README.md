@@ -16,7 +16,7 @@ A Telegram bot that automates community engagement, announcements, and updates f
 ### Database & Automation
 - User data and message storage
 - Automated welcome messages and event reminders
-- Scheduled community updates using AsyncIO
+- Scheduled community updates using AsyncIO And also motivational messages everyday generated using AI.
 
 ### Creative Features
 - **Sentiment Analysis**: Community pulse tracking via APIVerve
@@ -51,8 +51,8 @@ telegram_community_bot/
 ### Prerequisites
 - Python 3.8+
 - Telegram account
-- Huggingface API key
-- Database setup (Firebase/MongoDB/PostgreSQL)
+- Huggingface API key - I used the "/models/facebook/blenderbot-3B" from huggingface
+- Database setup (Firebase/MongoDB/PostgreSQL) - I have used Firebase
 
 ### Environment Variables
 Create a `.env` file with the following:
@@ -132,9 +132,6 @@ The bot uses Huggingface models to:
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgements
 - python-telegram-bot
