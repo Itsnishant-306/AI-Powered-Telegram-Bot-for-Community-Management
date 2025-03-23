@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+comm-mngbot-firebase-adminsdk-fbsvc-979b01d5fd.json
+comm-mngbot-firebase-adminsdk-fbsvc-*.json
+
+*.json
+secrets/
+config.json
+.env
