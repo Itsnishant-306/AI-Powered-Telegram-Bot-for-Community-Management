@@ -29,7 +29,7 @@ async def main():
     scheduler = AsyncIOScheduler(timezone=pytz.UTC)
     
     # Create the Application with the custom scheduler
-    application_builder = Application.builder().token(TOKEN)
+    application_builder = (Application.builder().token(TOKEN).job_queue(JobQueue(AsyncIOScheduler(timezone=pytz.timezone('UTC'))))) ##changed 
     # Disable the default job queue to prevent automatic creation
     application_builder._job_queue = None
     app = application_builder.build()
