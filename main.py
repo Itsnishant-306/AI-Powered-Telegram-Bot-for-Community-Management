@@ -67,9 +67,8 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
-    try:
-        asyncio.run(main())  # ✅ Standard execution
-    except RuntimeError:
-        import nest_asyncio
-        nest_asyncio.apply()  # ✅ Apply only if needed
-        asyncio.run(main())  # ✅ Safe execution
+    #asyncio.run(main())  # Run the bot using asyncio
+    import nest_asyncio
+    nest_asyncio.apply()
+    asyncio.run(main())  # ✅ Safe way to run inside an existing loop
+    #asyncio.get_event_loop().run_until_complete(main())  # ✅ Safe way to run inside an existing loop

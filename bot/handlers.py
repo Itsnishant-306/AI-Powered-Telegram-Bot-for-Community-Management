@@ -119,7 +119,7 @@ async def announce(update: Update, context: CallbackContext):
         await update.message.reply_text("Usage: /announce <Attention guys! I am happy to announce that, our community is rapidly growing.>")
         return
 
-    users = get_all_users()  # Fetch all users from Firebase
+    users = await get_all_users()  # Fetch all users from Firebase
     for user in users:
         try:
             await context.bot.send_message(chat_id=user['user_id'], text=f"📢 Announcement: {announcement}")
