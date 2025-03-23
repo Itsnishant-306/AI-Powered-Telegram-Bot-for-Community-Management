@@ -86,7 +86,9 @@ python main.py
 - `/about` - Learn about Systemic Altruism
 - `/faq` - Access frequently asked questions
 - `/leaderboard` - View community engagement leaderboard
-- `/sentiment` - Check community sentiment analysis
+- `/sentiment` - for sentiment analysis
+- `/announce` - For Admins only for announcements
+- Type your questions and anything you'd want to ask, It's AI powered - ready to conquer your doubts.
 
 ## Deployment
 
@@ -97,6 +99,8 @@ This bot is deployed on Render.
 2. Create a new Web Service pointing to your repository
 3. Set up environment variables in the Render dashboard
 4. Deploy the application
+
+### I am currently facing errors in deployment, but goodnews is that bot works perfectly fine. 
 
 ## Technical Implementation
 
