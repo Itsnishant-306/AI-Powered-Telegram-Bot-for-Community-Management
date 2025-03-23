@@ -26,7 +26,7 @@ async def main():
     init_db()
     
     # Create a scheduler with explicit timezone
-    scheduler = AsyncIOScheduler(timezone="UTC")
+    scheduler = AsyncIOScheduler(timezone=pytz.UTC)
     
     # Create the Application with the custom scheduler
     application_builder = Application.builder().token(TOKEN)
