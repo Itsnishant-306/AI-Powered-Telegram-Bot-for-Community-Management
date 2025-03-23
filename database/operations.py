@@ -7,17 +7,26 @@ import json
 
 # Load environment variables
 load_dotenv()
-firebase_creds = os.getenv('FIREBASE_CREDENTIALS')
+
+firebase_creds = os.getenv("FIREBASE_CREDENTIALS")
 
 if firebase_creds:
     try:
-        cred_dict = json.loads(firebase_creds)  # Convert string to dictionary
-        cred = credentials.Certificate(cred_dict)  # Use the dictionary directly
+        # Convert JSON string from .env into a dictionary
+        cred_dict = json.loads(firebase_creds)
+
+        # Initialize Firebase directly using the dictionary
+        cred = credentials.Certificate(cred_dict)  
         firebase_admin.initialize_app(cred)
+
         db = firestore.client()
         print("✅ Firebase initialized successfully!")
+
     except json.JSONDecodeError as e:
         print(f"❌ Error decoding Firebase credentials: {e}")
+    except Exception as e:
+        print(f"❌ Firebase initialization failed: {e}")
+
 else:
     print("❌ FIREBASE_CREDENTIALS environment variable is missing!")
 
