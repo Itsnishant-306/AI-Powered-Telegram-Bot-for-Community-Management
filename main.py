@@ -26,7 +26,7 @@ async def main():
     init_db()
     
     # Create a scheduler with explicit timezone
-    scheduler = AsyncIOScheduler(timezone=pytz.UTC)
+    scheduler = AsyncIOScheduler(timezone="UTC")
     
     # Create the Application with the custom scheduler
     application_builder = Application.builder().token(TOKEN)
@@ -76,6 +76,7 @@ async def main():
     logger.info("🤖 Bot started! Press Ctrl+C to stop.")
     await app.run_polling()
 
+"""
 if __name__ == "__main__":
     import asyncio
     #asyncio.run(main())  # Run the bot using asyncio
@@ -83,3 +84,12 @@ if __name__ == "__main__":
     nest_asyncio.apply()
     asyncio.run(main())  # ✅ Safe way to run inside an existing loop
     #asyncio.get_event_loop().run_until_complete(main())  # ✅ Safe way to run inside an existing loop
+"""
+if __name__ == "__main__":
+    import asyncio
+    try:
+        asyncio.run(main())  # ✅ Standard execution
+    except RuntimeError:
+        import nest_asyncio
+        nest_asyncio.apply()  # ✅ Only apply if needed
+        asyncio.run(main())
