@@ -107,6 +107,9 @@ python main.py
 #### /leaderboard | /sentiment 
 ![Screenshot 2025-03-23 185248](https://github.com/user-attachments/assets/2eb4e64a-c2db-4e2a-be40-7d7e5679ea20)
 
+#### Database- Firebase | stores: user data, messages, etc details.
+![Screenshot (1651)](https://github.com/user-attachments/assets/b54d2a6f-db26-49b8-b3ba-b80327c30790)
+
 
 
 ## Deployment
