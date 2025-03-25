@@ -122,7 +122,7 @@ This bot is deployed on Render.
 3. Set up environment variables in the Render dashboard
 4. Deploy the application
 
-### I am currently facing errors in deployment, but goodnews is that bot works perfectly fine. 
+### I am currently facing errors in deployment, but the bot will work well if you clone and setup these. 
 
 ## Technical Implementation
 
